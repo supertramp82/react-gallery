@@ -1,7 +1,17 @@
 import React from 'react';
 
-const Thumb = () => {
-  return <div style={thumbStyle}>Thumbnail</div>;
+const Thumb = ({ imgUrl, handleClick, index }) => {
+  return (
+    <div style={thumbStyle}>
+      <img
+        src={imgUrl}
+        alt=""
+        style={imgStyle}
+        onClick={handleClick}
+        data-index={index}
+      />
+    </div>
+  );
 };
 
 const thumbStyle = {
@@ -11,6 +21,12 @@ const thumbStyle = {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
+};
+
+const imgStyle = {
+  width: '98%',
+  height: '98%',
+  position: 'relative',
 };
 
 export default Thumb;

@@ -18,8 +18,6 @@ export default class App extends Component {
   render() {
     const { thumbs } = this.state;
 
-    console.log(2, thumbs);
-
     return (
       <div>
         <Gallery images={thumbs} />

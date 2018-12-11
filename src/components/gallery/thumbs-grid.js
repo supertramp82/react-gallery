@@ -1,22 +1,19 @@
 import React from 'react';
 import Thumb from './thumb';
 
-const ThumbsGrid = () => {
+const ThumbsGrid = ({ thumbs, handleClick }) => {
   return (
     <div style={thumbGridStyle}>
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
-      <Thumb />
+      {thumbs.map((thumb, i) => {
+        return (
+          <Thumb
+            key={thumb.thumbURL}
+            imgUrl={thumb.thumbURL}
+            handleClick={handleClick}
+            index={i}
+          />
+        );
+      })}
     </div>
   );
 };
