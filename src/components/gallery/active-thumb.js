@@ -1,13 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const ActiveThumb = ({ activeThumb }) => {
-  return (
-    <div style={parentStyle}>
-      <img style={activeThumbStyle} src={activeThumb.imgURL} />
-      <div style={topRightStyle}>{activeThumb.caption}</div>
-    </div>
-  );
-};
+class ActiveThumb extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dragging: false,
+      moving: false,
+    };
+
+    this.onmousedown = this.onmousedown.bind(this);
+    this.onmouseup = this.onmouseup.bind(this);
+    this.onmousemove = this.onmousemove.bind(this);
+  }
+
+  onmousedown() {
+    this.setState({ dragging: true, moving: false });
+  }
+
+  onmouseup() {
+    this.setState({ dragging: false });
+  }
+
+  onmousemove() {
+    if (this.state.dragging == true) {
+      if (this.state.moving == false) {
+        this.setState({ dragging: false, moving: true });
+        this.props.onNext();
+      }
+    }
+  }
+
+  render() {
+    const { activeThumb } = this.props;
+
+    return (
+      <div
+        style={parentStyle}
+        onMouseDown={this.onmousedown}
+        onMouseUp={this.onmouseup}
+        onMouseMove={this.onmousemove}
+      >
+        <img style={activeThumbStyle} src={activeThumb.imgURL} />
+        <div style={topRightStyle}>{activeThumb.caption}</div>
+      </div>
+    );
+  }
+}
 
 const activeThumbStyle = {};
 

@@ -12,6 +12,11 @@ export default class Gallery extends Component {
 
     this.renderThumb = this.renderThumb.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.onNext = this.onNext.bind(this);
+  }
+
+  onNext() {
+    this.setState({ activeIndex: this.state.activeIndex + 1 });
   }
 
   renderThumb() {
@@ -19,7 +24,10 @@ export default class Gallery extends Component {
 
     if (images.length) {
       return (
-        <ActiveThumb activeThumb={images[this.state.activeIndex]} />
+        <ActiveThumb
+          activeThumb={images[this.state.activeIndex]}
+          onNext={this.onNext}
+        />
       );
     }
   }
