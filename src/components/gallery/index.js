@@ -16,7 +16,12 @@ export default class Gallery extends Component {
   }
 
   onNext() {
-    this.setState({ activeIndex: this.state.activeIndex + 1 });
+    const { images } = this.props;
+
+    if (this.state.activeIndex == images.length - 1)
+      this.setState({ activeIndex: 0 });
+    else
+      this.setState({ activeIndex: +this.state.activeIndex + 1 });
   }
 
   renderThumb() {
