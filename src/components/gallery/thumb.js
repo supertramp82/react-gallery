@@ -15,8 +15,8 @@ const Thumb = ({ imgUrl, handleClick, index }) => {
 };
 
 const thumbStyle = {
-  width: '10%',
-  height: '10vh',
+  width: '12vh',
+  height: '9vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
