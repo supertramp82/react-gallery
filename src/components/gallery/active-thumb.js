@@ -59,6 +59,7 @@ const topRightStyle = {
 
 const parentStyle = {
   position: 'relative',
-  width: '100%',
+  maxWidth: '100%',
+  height: 'auto'
 };
 export default ActiveThumb;
